@@ -1,7 +1,6 @@
 site_name: Riftborn Documentation
 theme:
   font:
-    text: Merriweather Sans
     code: Red Hat Mono
   name: material
   palette: 
@@ -10,8 +9,6 @@ theme:
     accent: green
   features:
     - navigation.footer
-
-
 
 markdown_extensions:
   - pymdownx.highlight:
