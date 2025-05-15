@@ -4,7 +4,7 @@
 
 - [Ability System](plugins/ability-system.md)
 - Actor Pool
-- Advanced Asset
+- [Advanced Asset](plugins/advanced-asset.md)
 - Advanced Logger
 - Advanced Movement
 - Advanced Sessions
