@@ -25,11 +25,21 @@ public:
 public:
 	virtual FString GetDebugString_Implementation() const override;
 };
+
 ```
 !!! info
     Be sure to overwrite the *GetDebugString* function so that other developers can understand which 
     attribute currently exists on the actor.
 
+---
+
+There are some events that can be useful for tracking the status of Attribute:
+- OnMinValueChanged
+- OnMaxValueChanged
+- OnValueChanged
+- OnValueMinThresholdReached
+- OnValueMaxThresholdReached
+ 
 ## Effects
 
 There are only 4 types of effect in the plugin:
@@ -101,7 +111,6 @@ void OnWorkEnded();
     You can call **EndWork()** to terminate the effect.
 
     This will call the **EffectHasEnded(this)** method of the effect owner (*GetOwningComponent()*), which will properly clear memory and remove the effect from the array by calling **OnWorkEnded()** and **ConditionalBeginDestroy()** on it
-    
 
 ### PeriodicInstantEffect
 PeriodicInstantEffect starts a looped timer for an "Tick" action.
@@ -224,6 +233,21 @@ flowchart LR
 !!! warning
     Since this is a actor component, there is no limit to the number of component per actor, but **1 manager per 1 actor is recommended**. This will make it easier to manipulate objects
 
+---
+
+There are some events that can be useful for tracking the status of Ability System Component:
+
+- OnEffectAdded
+- OnEffectStacked
+- OnEffectRemoved
+- OnEffectListUpdated
+- OnAttributeAdded
+- OnAttributeRemoved
+- OnAttributeListUpdated
+
+!!! tip
+    You can overwrite any methods in a class for custom managers
+
 ## Attribute Management
 
 You can use the following methods to handle the attributes of this component:
@@ -294,7 +318,7 @@ virtual UAttribute* GetAttribute(TSubclassOf<UAttribute> AttributeClass);
     ```
     
 !!! warning "Nullptr return"
-        Returns **nullptr** if the attribute could not be found.
+    Returns **nullptr** if the attribute could not be found.
 
 ---
 
@@ -404,7 +428,7 @@ virtual UEffect* GetEffect(TSubclassOf<UEffect> EffectClass);
     ```
 
 !!! warning "Nullptr return"
-        Returns **nullptr** if the effect could not be found.
+    Returns **nullptr** if the effect could not be found.
 
 ---
 
@@ -425,3 +449,117 @@ virtual bool HasEffect(TSubclassOf<UEffect> EffectClass) const;
 ```C++ title="ASComponent.h"
 virtual void GetEffectList(TArray<UEffect*>& OutEffects);
 ```
+
+## Replication
+
+The plugin fully supports replication and uses the [Unreal Push Network Model](https://www.kierannewland.co.uk/push-model-networking-unreal-engine/) to optimise network.
+
+To replicate UObjects, the plugin uses [ReplicatedObject](https://github.com/ArtemIyX/ReplicatedObjectUnreal).
+
+For full functionality, you must enable Push Model in the project and replicate the ASComponent in constructor
+```C++
+AbilitySystemComponent = CreateDefaultSubobject<UASComponent>(TEXT("AS"));
+AbilitySystemComponent->SetIsReplicated(true);
+```
+
+```ini title="DefaultEngine.ini"
+[SystemSettings]
+net.IsPushModelEnabled=1
+net.PushModelSkipUndirtiedReplication=1
+```
+
+## Examples
+
+You can set specific values to any attribute if you have a need to dynamically configure each attribute for different actors.
+
+```C++ title="AHumAbilityCharacter.cpp"
+void AHumAbilityCharacter::AddDefaultAttributes_Implementation()
+{
+	const int32 n = DefaultAttributes.Num();
+	for (int32 i = 0; i < n; ++i)
+	{
+		const FDefaultPlayerAttribute& el = DefaultAttributes[i];
+		if (el.AttributeClass)
+		{
+			if (UAttribute* entity = AbilitySystemComponent->AddAttribute(el.AttributeClass))
+			{
+				UAttributeSettingsDataAsset* settings = el.Settings.LoadSynchronous();
+				if (IsValid(settings))
+				{
+					ApplySettingsForAttribute(entity, settings);
+				}
+			}
+		}
+	}
+}
+
+
+void AHumAbilityCharacter::ApplySettingsForAttribute_Implementation(
+	UAttribute* InAttribute,
+	UAttributeSettingsDataAsset* InSettings)
+{
+	if (IsValid(InAttribute) && IsValid(InSettings))
+	{
+		InAttribute->SetMinValue(InSettings->MinValue);
+		InAttribute->SetMaxValue(InSettings->MaxValue);
+		InAttribute->SetValue(InSettings->InitialValue);
+	}
+}
+```
+
+---
+
+You can cache frequently used attributes to make it easier to retrieve them in future code.
+
+```c++ title="AHumAbilityCharacter.cpp"
+TObjectPtr<UAttribute> AHumAbilityCharacter::GetHealth() const
+{
+	if (!HealthAttribute || !IsValid(HealthAttribute.Get()))
+	{
+		if (AbilitySystemComponent)
+		{
+			// Remove const from the current object to modify HealthAttribute
+			auto nonConstThis = const_cast<AHumAbilityCharacter*>(this);
+			nonConstThis->HealthAttribute = AbilitySystemComponent->Attribute(UHealthAttribute::StaticClass());
+		}
+	}
+	return HealthAttribute;
+}
+```
+
+---
+
+You can bind to attribute events after you have added them to list.
+
+```c++ title="AHumAbilityCharacter.cpp"
+void AHumAbilityCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	if (HasAuthority())
+	{
+		AddDefaultAttributes();
+		AddDefaultEffects();
+		if (TObjectPtr<UAttribute> hp = GetHealth())
+		{
+			hp->OnValueMinThresholdReached.AddDynamic(this, &AHumAbilityCharacter::OnHpLost);
+		}
+	}
+}
+```
+
+!!! note "Authority"
+    Working with attributes and effects is possible only on the server. Check **HasAuthority()** before calling methods.
+
+!!! tip "Replication"
+    Attributes and Effects are replicated, so it is possible to find out the state of an entity on the client side.
+
+---
+
+You can change the value of the attributes as you like.
+
+```C++ title="AHumAbilityCharacter.cpp"
+hp->SetValue(hp->GetCurrentValue() - FMath::Abs(Amount));
+```
+
+!!! Note
+    An attribute value cannot be greater than MaxValue, and less than MinValue. It will be clamped.
