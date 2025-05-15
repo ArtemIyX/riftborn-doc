@@ -7,8 +7,7 @@
 - [Advanced Asset](plugins/advanced-asset.md)
 - [Advanced Logger](plugins/advanced-logger.md)
 - Advanced Movement
-- Advanced Sessions
-- Advanced Steam Sessions
+- [Advanced Sessions](plugins/advanced-sessions.md)
 - Async Loading Screen
 - Blueprint Compiler
 - Data Serializer

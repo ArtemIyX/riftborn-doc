@@ -1,4 +1,4 @@
-# Ability System Plugin
+# Ability System
 
 ## About the plugin
 

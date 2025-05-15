@@ -1,4 +1,4 @@
-# Advanced Asset Plugin
+# Advanced Asset
 
 ## About the plugin
 
