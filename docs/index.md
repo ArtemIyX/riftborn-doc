@@ -12,7 +12,7 @@
 - Data Serializer
 - Easy Settings
 - Menu Plugin
-- Replicated Object
+- [Replicated Object](plugins/replicated-object.md)
 - Runtime Image Loader
 - Universal Voice Chat Pro
 - Melee Master
