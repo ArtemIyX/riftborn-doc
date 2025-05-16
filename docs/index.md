@@ -3,7 +3,7 @@
 ## Project Structure - Plugins
 
 - [Ability System](plugins/ability-system.md)
-- Actor Pool
+- [Actor Pool](plugins/actor-pool.md)
 - [Advanced Asset](plugins/advanced-asset.md)
 - [Advanced Logger](plugins/advanced-logger.md)
 - Advanced Movement
