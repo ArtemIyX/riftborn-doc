@@ -1,0 +1,1524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../data-serializer/">
+      
+      
+        <link rel="next" href="../replicated-object/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Easy Settings - Riftborn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#easy-settings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Riftborn Documentation" class="md-header__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Riftborn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Easy Settings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Riftborn Documentation" class="md-nav__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Riftborn Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to Riftborn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Plugins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plugins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ability-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ability System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actor-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actor Pool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-asset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Asset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Movement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blueprint-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blueprint Compile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-serializer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Serializer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Easy Settings
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy Settings
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#developer-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Developer Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-setter-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings Setter Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-save-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Save Name
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-settings-setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Easy Settings Setter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy Settings Setter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-settings-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Easy Settings Subsystem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy Settings Subsystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esettingstype" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESettingsType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-settings-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Settings Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-settings-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Settings Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-antialiasing-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Antialiasing Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-antialiasing-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Antialiasing Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-overall-quality-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Overall Quality Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-vsync-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Vsync Enabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-vsync-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Vsync Enabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-framerate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set FrameRate Limit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-framerate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get FrameRate Limit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-windowed-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Windowed Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-current-windowed-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Current Windowed Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-fullscreenmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get FullscreenMode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-current-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Current Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-supported-resolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Supported Resolutions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-screen-percentage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Screen Percentage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-screen-percentage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Screen Percentage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-container-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Container Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-container-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Container Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-container-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Container Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply Container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replicated-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Replicated Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#developer-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Developer Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-setter-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      Settings Setter Class
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-save-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      Container Save Name
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-settings-setter" class="md-nav__link">
+    <span class="md-ellipsis">
+      Easy Settings Setter
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy Settings Setter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Value
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#easy-settings-subsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Easy Settings Subsystem
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Easy Settings Subsystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#esettingstype" class="md-nav__link">
+    <span class="md-ellipsis">
+      ESettingsType
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-settings-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Settings Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-settings-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Settings Quality
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-antialiasing-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Antialiasing Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-antialiasing-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Antialiasing Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-overall-quality-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Overall Quality Level
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-vsync-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Vsync Enabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-vsync-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Vsync Enabled
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-framerate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set FrameRate Limit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-framerate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get FrameRate Limit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-windowed-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Windowed Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-current-windowed-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Current Windowed Mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-fullscreenmode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get FullscreenMode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-current-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Current Resolution
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-supported-resolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Supported Resolutions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-screen-percentage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Screen Percentage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-screen-percentage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Screen Percentage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-container-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Container Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-container-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Container Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-container-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reset Container Value
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply Settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply Container
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="easy-settings">Easy Settings</h1>
+<blockquote>
+<p><a href="https://github.com/ArtemIyX/EasySettingsUnreal">Github Repository</a></p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>A plugin that adds a subsystem that expands developers' options for game customization and makes it easier to develop certain settings.</p>
+<h2 id="developer-settings">Developer Settings</h2>
+<p>Developer settings for the system,</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystemDeveloperSettings</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">EASYSETTINGS_API</span><span class="w"> </span><span class="n">UEasySettingsSubsystemDeveloperSettings</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UDeveloperSettings</span>
+</span></code></pre></div>
+<h3 id="settings-setter-class">Settings Setter Class</h3>
+<p>Used to create an instance of UEasySettingsSetter.</p>
+<p>Change to your class to use its overwritten methods.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystemDeveloperSettings</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UEasySettingsSetter</span><span class="o">&gt;</span><span class="w"> </span><span class="n">SettingsSetterClass</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="container-save-name">Container Save Name</h3>
+<p>Used in <code>FString UEasySettingsSubsystem::GetContainerSavePath()</code>  to define the path to save the file.</p>
+<p>Specify any file name and it will be saved to <code>GetProjectDir()/ContainerSaveName</code></p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystemDeveloperSettings</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">FString</span><span class="w"> </span><span class="n">ContainerSaveName</span><span class="p">;</span>
+</span></code></pre></div>
+<h2 id="easy-settings-setter">Easy Settings Setter</h2>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">EASYSETTINGS_API</span><span class="w"> </span><span class="n">UEasySettingsSetter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
+</span></code></pre></div>
+<p>A class that manages categorized float values.</p>
+<p>UEasySettingsSetter is designed to store, retrieve, and serialize float values that are categorized by an <code>uint8</code> key.
+It provides functionality to initialize, set, get, read, and write these categorized values.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSetter.h</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">EasySettings</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">VALUES_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">254</span><span class="p">;</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">uint8</span><span class="w"> </span><span class="n">MapKey</span><span class="p">;</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">FEasySettingsContainerValue</span><span class="w"> </span><span class="n">MapValue</span><span class="p">;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="k">typedef</span><span class="w"> </span><span class="n">TMap</span><span class="o">&lt;</span><span class="n">EasySettings</span><span class="o">::</span><span class="n">MapKey</span><span class="p">,</span><span class="w"> </span><span class="n">EasySettings</span><span class="o">::</span><span class="n">MapValue</span><span class="o">&gt;</span><span class="w"> </span><span class="n">FContainer</span><span class="p">;</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>The map allows for fast retrieval and update of float values based on their category.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSetter.h</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">protected</span><span class="o">:</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">EasySettings</span><span class="o">::</span><span class="n">FContainer</span><span class="w"> </span><span class="n">Values</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Features: </p>
+<ul>
+<li>SetValue</li>
+<li>ResetValue</li>
+<li>GetValue</li>
+</ul>
+<h3 id="set-value">Set Value</h3>
+<p>Sets the float value for a specific category.
+If the provided category exists in the Values map, this method updates the associated float value.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Overwrite this method and you will be able to handle every parameter set in blueprints</p>
+</div>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSetter.h</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetValue</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">InValue</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the category does not exist, no action is taken.</p>
+</div>
+<h3 id="get-value">Get Value</h3>
+<p>Retrieves the float value associated with a specific category.</p>
+<p>If the category exists, the method assigns the associated float value to the provided reference and returns true.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSetter.h</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">GetValue</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutValue</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">bOutDefault</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the category does not exist, the method returns false.</p>
+</div>
+<h3 id="reset-value">Reset Value</h3>
+<p>Resets value to default</p>
+<p><div class="language-C++ highlight"><span class="filename">EasySettingsSetter.h</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ResetValue</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSetter.cpp</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Values</span><span class="p">[</span><span class="n">InCategory</span><span class="p">].</span><span class="n">bDefaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Values</span><span class="p">[</span><span class="n">InCategory</span><span class="p">].</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h2 id="easy-settings-subsystem">Easy Settings Subsystem</h2>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">EASYSETTINGS_API</span><span class="w"> </span><span class="n">UEasySettingsSubsystem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UGameInstanceSubsystem</span>
+</span></code></pre></div>
+<p>A subsystem that extends game settings, includes changing console variables and more.</p>
+<p>Features:</p>
+<ul>
+<li>SetSettingsQuality, GetSettingsQuality</li>
+<li>SetAntialiasingMethod, GetAntialiasingMethod</li>
+<li>SetOverallQualityLevel</li>
+<li>SetVsyncEnabled, GetVsyncEnabled</li>
+<li>SetFrameRateLimit, GetFrameRateLimit</li>
+<li>SetWindowedMode, GetCurrentWindowedMode, GetFullscreenMode</li>
+<li>SetResolution, GetCurrentResolution</li>
+<li>GetSupportedResolutions</li>
+<li>SetScreenPercentage, GetScreenPercentage</li>
+<li>SetContainerValue, GetContainerValue, ResetContainerValue</li>
+<li>ApplySettings</li>
+<li>ApplyContainer</li>
+</ul>
+<h3 id="esettingstype">ESettingsType</h3>
+<p>An enumeration representing different types of graphical settings in the game.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ESettingsType</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">uint8</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">TYPE_NONE</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">Hidden</span><span class="p">),</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">TYPE_AA</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Anti Aliasing&quot;</span><span class="p">),</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">TYPE_Textures</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Textures&quot;</span><span class="p">),</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">TYPE_Effects</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Effects&quot;</span><span class="p">),</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">TYPE_Shadows</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Shadows&quot;</span><span class="p">),</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">TYPE_Foliage</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Foliage&quot;</span><span class="p">),</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">TYPE_Reflection</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Reflection&quot;</span><span class="p">),</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="n">TYPE_GlobalIllumination</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;Global Illumination&quot;</span><span class="p">),</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="n">TYPE_ViewDistance</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">DisplayName</span><span class="o">=</span><span class="s">&quot;View Distance&quot;</span><span class="p">),</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="cm">/** Represents the maximum value for this enum, used internally. */</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="n">TYPE_MAX</span><span class="w"> </span><span class="n">UMETA</span><span class="p">(</span><span class="n">Hidden</span><span class="p">)</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="p">};</span>
+</span></code></pre></div>
+<h3 id="set-settings-quality">Set Settings Quality</h3>
+<p>Sets the quality values for the selected setting. </p>
+<p>Can be useful when using combo boxes together with <strong>ESettingsType</strong> enumeration.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetSettingsQuality</span><span class="p">(</span><span class="n">ESettingsType</span><span class="w"> </span><span class="n">InSettingsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ESettingsType</span><span class="o">::</span><span class="n">TYPE_Effects</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">                        </span><span class="n">int32</span><span class="w"> </span><span class="n">InQuality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">                        </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If bApply == true, it will call <strong>ApplySettings()</strong></p>
+</div>
+<h3 id="get-settings-quality">Get Settings Quality</h3>
+<p>Retrieves the current quality level of a specific setting type.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">int32</span><span class="w"> </span><span class="nf">GetSettingsQuality</span><span class="p">(</span><span class="n">ESettingsType</span><span class="w"> </span><span class="n">InSettingsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ESettingsType</span><span class="o">::</span><span class="n">TYPE_Effects</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="set-antialiasing-method">Set Antialiasing Method</h3>
+<p>Sets the Anti-Aliasing method.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetAntialiasingMethod</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">        </span><span class="n">APlayerController</span><span class="o">*</span><span class="w"> </span><span class="n">InController</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">        </span><span class="n">int32</span><span class="w"> </span><span class="n">InValue</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="get-antialiasing-method">Get Antialiasing Method</h3>
+<p>Retrieves the current Anti-Aliasing method.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">int32</span><span class="w"> </span><span class="nf">GetAntialiasingMethod</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="set-overall-quality-level">Set Overall Quality Level</h3>
+<p>Sets the Overall quality level.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetOverallQualityLevel</span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">InValue</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="set-vsync-enabled">Set Vsync Enabled</h3>
+<p>Enables or disables VSync.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetVsyncEnabled</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">bInValue</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="get-vsync-enabled">Get Vsync Enabled</h3>
+<p>Checks whether VSync is currently enabled.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetVsyncEnabled</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="set-framerate-limit">Set FrameRate Limit</h3>
+<p>Sets the frame rate limit.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetFrameRateLimit</span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">InValue</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="get-framerate-limit">Get FrameRate Limit</h3>
+<p>Retrieves the current frame rate limit.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">int32</span><span class="w"> </span><span class="nf">GetFrameRateLimit</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="set-windowed-mode">Set Windowed Mode</h3>
+<p>Sets the window mode (fullscreen, windowed, or borderless window).</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetWindowedMode</span><span class="p">(</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="n">TEnumAsByte</span><span class="o">&lt;</span><span class="n">EWindowMode</span><span class="o">::</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InWindowMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWindowMode</span><span class="o">::</span><span class="n">Type</span><span class="o">::</span><span class="n">Windowed</span><span class="p">,</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="get-current-windowed-mode">Get Current Windowed Mode</h3>
+<p>Retrieves the current window mode.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">TEnumAsByte</span><span class="o">&lt;</span><span class="n">EWindowMode</span><span class="o">::</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetCurrentWindowedMode</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="get-fullscreenmode">Get FullscreenMode</h3>
+<p>This function returns the current fullscreen mode as configured in the game's settings. The possible modes
+include fullscreen, windowed, and borderless windowed.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">TEnumAsByte</span><span class="o">&lt;</span><span class="n">EWindowMode</span><span class="o">::</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetFullscreenMode</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">GetGameUserSettings</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetFullscreenMode</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="set-resolution">Set Resolution</h3>
+<p>Sets the screen resolution.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetResolution</span><span class="p">(</span><span class="n">FIntPoint</span><span class="w"> </span><span class="n">InResolution</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="get-current-resolution">Get Current Resolution</h3>
+<p>Retrieves the current screen resolution.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">FIntPoint</span><span class="w"> </span><span class="nf">GetCurrentResolution</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="get-supported-resolutions">Get Supported Resolutions</h3>
+<p>Retrieves the supported screen resolutions based on the selected window mode.
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetSupportedResolutions</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FIntPoint</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutResult</span><span class="p">,</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">                                </span><span class="n">TEnumAsByte</span><span class="o">&lt;</span><span class="n">EWindowMode</span><span class="o">::</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">InWindowMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EWindowMode</span><span class="o">::</span><span class="n">Type</span><span class="o">::</span><span class="n">Windowed</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h3 id="set-screen-percentage">Set Screen Percentage</h3>
+<p>Sets the screen percentage scaling factor for rendering.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetScreenPercentage</span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">InValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function allows modifying the <code>r.ScreenPercentage</code> console variable, 
+which controls the resolution scale of the rendered scene.</p>
+</div>
+<h3 id="get-screen-percentage">Get Screen Percentage</h3>
+<p>Retrieves the current screen percentage scaling factor.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">int32</span><span class="w"> </span><span class="nf">GetScreenPercentage</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function reads the value of the <code>r.ScreenPercentage</code> console variable, 
+which determines the resolution scale used for rendering.</p>
+</div>
+<h3 id="set-container-value">Set Container Value</h3>
+<p>Sets the container value for a specific category.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SetContainerValue</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">InValue</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>his method sets the float value for a given category in the container. 
+If the <code>bApply</code> flag is true, the settings are applied immediately after setting the value.</p>
+</div>
+<h3 id="get-container-value">Get Container Value</h3>
+<p>Retrieves the container value for a specific category.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetContainerValue</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutValue</span><span class="p">,</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">        </span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">bDefault</span><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="reset-container-value">Reset Container Value</h3>
+<p>Resets the container value.</p>
+<p><div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ResetContainerValue</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">bApply</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UEasySettingsSetter::ResetValue_Implementation</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InCategory</span><span class="p">)</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="p">{</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Values</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">InCategory</span><span class="p">))</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">        </span><span class="n">Values</span><span class="p">[</span><span class="n">InCategory</span><span class="p">].</span><span class="n">bDefaultValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">        </span><span class="n">Values</span><span class="p">[</span><span class="n">InCategory</span><span class="p">].</span><span class="n">Value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-32-8"><a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="p">}</span>
+</span></code></pre></div></p>
+<h3 id="apply-settings">Apply Settings</h3>
+<p>Applies the current settings, saving them to the user's configuration file.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ApplySettings</span><span class="p">();</span>
+</span></code></pre></div>
+<h3 id="apply-container">Apply Container</h3>
+<p>Applies the current container values, saving them to the user's configuration file.</p>
+<div class="language-C++ highlight"><span class="filename">EasySettingsSubsystem.h</span><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ApplyContainer</span><span class="p">();</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../data-serializer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data Serializer">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Data Serializer
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../replicated-object/" class="md-footer__link md-footer__link--next" aria-label="Next: Replicated Object">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Replicated Object
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

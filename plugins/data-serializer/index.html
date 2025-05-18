@@ -1,0 +1,1277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../blueprint-compile/">
+      
+      
+        <link rel="next" href="../easy-settings/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Data Serializer - Riftborn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#data-serializer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Riftborn Documentation" class="md-header__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Riftborn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Data Serializer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Riftborn Documentation" class="md-nav__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Riftborn Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to Riftborn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Plugins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plugins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ability-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ability System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actor-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actor Pool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-asset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Asset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Movement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blueprint-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blueprint Compile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Data Serializer
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Serializer
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-serializer-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Serializer Lib
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deserialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deserialize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utf8-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      UTF8 Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialize-deserialize-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize / Deserialize Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialize / Deserialize Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialize-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialize Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetBytes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushbytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      PushBytes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serialize_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserialize-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeSerialize Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeSerialize Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-try-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ Try Read
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blueprints-try-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blueprints Try Read
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../easy-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replicated-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Replicated Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-serializer-lib" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Serializer Lib
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#write-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Write Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Read Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deserialize" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deserialize
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utf8-bytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      UTF8 Bytes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#serialize-deserialize-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize / Deserialize Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialize / Deserialize Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serialize-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Serialize Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getbytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      GetBytes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pushbytes" class="md-nav__link">
+    <span class="md-ellipsis">
+      PushBytes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serialize_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Serialize
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deserialize-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      DeSerialize Object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DeSerialize Object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clear
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-try-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      C++ Try Read
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blueprints-try-read" class="md-nav__link">
+    <span class="md-ellipsis">
+      Blueprints Try Read
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="data-serializer">Data Serializer</h1>
+<blockquote>
+<p><a href="https://github.com/ArtemIyX/DataSerializerUnreal">Github Repository</a></p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>A set of utilities for convenient data serialization</p>
+<h2 id="data-serializer-lib">Data Serializer Lib</h2>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">DATASERIALIZER_API</span><span class="w"> </span><span class="n">UDataSerializerLib</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UBlueprintFunctionLibrary</span>
+</span></code></pre></div>
+<p>Features:</p>
+<ul>
+<li>WriteBytesToDisk, WriteBytesToDiskCompressed</li>
+<li>ReadBytesFromDisk, ReadCompressedBytesFromDisk</li>
+<li>SerializeObject, DeserializeObject</li>
+<li>SerializeObjects, DeSerializeObjects</li>
+<li>GetUtf8Bytes, Utf8BytesToString</li>
+</ul>
+<h2 id="write-bytes">Write Bytes</h2>
+<p>You can write an array of bytes to disk using the following functions.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">WriteBytesToDisk</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">InPath</span><span class="p">);</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">WriteBytesToDiskCompressed</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">InPath</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>WriteBytesToDiskCompressed will write compressed bytes to disk, which will weigh less than the original byte array</p>
+</div>
+<h2 id="read-bytes">Read Bytes</h2>
+<p>You can load an array of bytes from disk using the following functions.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ReadBytesFromDisk</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutBytes</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">InPath</span><span class="p">);</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">ReadCompressedBytesFromDisk</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutBytes</span><span class="p">,</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">InPath</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ReadCompressedBytesFromDisk should be used if the bytes were written using WriteBytesToDiskCompressed</p>
+</div>
+<h2 id="serialize">Serialize</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>FObjectAndNameAsStringProxyArchive and FSerializationHeader are used for object serialization</p>
+</div>
+<p>You can serialize a single object into bytes using the following function.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">SerializeObject</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutBytes</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">InObject</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>UObject::Serialize()</strong> is used to serialize an object into bytes. Overwrite it for custom serialization or use UPROPERTY for default data types.</p>
+</div>
+<p>You can serialize an array of objects into bytes.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">SerializeObjects</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutBytes</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UObject</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">InObjects</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>At the beginning of the record will be the size of the array for further correct loading from disk.</p>
+</div>
+<h2 id="deserialize">Deserialize</h2>
+<p>You can deserialize an array of bytes into an object or array of objects.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use <strong>DeSerializeObjects()</strong> if you firstly used <strong>SerializeObjects()</strong>.</p>
+</div>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">DeserializeObject</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">ObjectOuter</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutObject</span><span class="p">);</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">DeSerializeObjects</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">InObjectOuter</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UObject</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutObjects</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Will return <strong>false</strong> if the bytes were invalid.</p>
+</div>
+<h2 id="utf8-bytes">UTF8 Bytes</h2>
+<p>UTF8 encoding is often used to transmit string bytes over a network.</p>
+<p>Use the following methods to serialize a FString into UTF8 bytes and back bytes into a FString</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">GetUtf8Bytes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InString</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutBytes</span><span class="p">);</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">static</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="nf">Utf8BytesToString</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="serialize-deserialize-object">Serialize / Deserialize Object</h2>
+<p>You can use <strong>USerializerObject</strong> and <strong>UDeSerializerObject</strong> for more convenience workflow in Blueprints.</p>
+<p>This is a wrapper over <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Core/Serialization/FMemoryWriter">FMemoryWriter</a> and <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Core/Serialization/FMemoryReader?application_version=5.5">FMemoryReader</a></p>
+<h3 id="serialize-object">Serialize Object</h3>
+<p>Wrapper of <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Core/Serialization/FMemoryWriter">FMemoryWriter</a></p>
+<p>Features:</p>
+<ul>
+<li>Clear</li>
+<li>Prepare</li>
+<li>GetBytes</li>
+<li>PushBytes</li>
+<li>Serialize (int32, int64, float, double, bool, vector, vector2d, point, rotator, transform, string, object, objects[])</li>
+</ul>
+<hr />
+<h4 id="clear">Clear</h4>
+<p>Clears all data and the pointer to MemoryWriter.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Clear</span><span class="p">();</span>
+</span></code></pre></div>
+<h4 id="prepare">Prepare</h4>
+<p>Clears the data and creates a new MemoryWriter.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Prepare</span><span class="p">();</span>
+</span></code></pre></div>
+<h4 id="getbytes">GetBytes</h4>
+<p>Getter for bytes. Returns the current array with bytes. Useful for writing bytes to disk after all data has been serialized</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">GetBytes</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutBytes</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="pushbytes">PushBytes</h4>
+<p>Appends bytes to the current byte array.</p>
+<p>Useful in conjunction with UDataSerializerLib.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">PushBytes</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="serialize_1">Serialize</h4>
+<p>Write bytes to an array of bytes using the &lt;&lt; operator of FMemoryWriter.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeInt</span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">InInteger</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InInteger</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeBigInt</span><span class="p">(</span><span class="n">int64</span><span class="w"> </span><span class="n">InBigInt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InBigInt</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeFloat</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">InFloat</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InFloat</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeDouble</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">InDouble</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InDouble</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeBool</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">InBool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InBool</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeByte</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="n">InByte</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InByte</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeVector</span><span class="p">(</span><span class="n">FVector</span><span class="w"> </span><span class="n">InVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InVector</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeIntVector</span><span class="p">(</span><span class="n">FIntVector</span><span class="w"> </span><span class="n">InVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InVector</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeVector2D</span><span class="p">(</span><span class="n">FVector2D</span><span class="w"> </span><span class="n">InVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InVector</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializePoint</span><span class="p">(</span><span class="n">FIntPoint</span><span class="w"> </span><span class="n">InPoint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InPoint</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeRotator</span><span class="p">(</span><span class="n">FRotator</span><span class="w"> </span><span class="n">InRotator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InRotator</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeTransform</span><span class="p">(</span><span class="n">FTransform</span><span class="w"> </span><span class="n">InTransform</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InTransform</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">USerializerObject::SerializeString</span><span class="p">(</span><span class="n">FString</span><span class="w"> </span><span class="n">InString</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">GetMemoryWriterRef</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">InString</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="deserialize-object">DeSerialize Object</h3>
+<p>Wrapper of <a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/API/Runtime/Core/Serialization/FMemoryReader?application_version=5.5">FMemoryReader</a></p>
+<p>Features:</p>
+<ul>
+<li>Clear</li>
+<li>Start</li>
+<li>Try Read</li>
+</ul>
+<h4 id="clear_1">Clear</h4>
+<p>Resets FMemoryReader pointer.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Clear</span><span class="p">();</span>
+</span></code></pre></div>
+<h4 id="start">Start</h4>
+<p>Clears the data and creates a new MemoryReader.</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InBytes</span><span class="p">);</span>
+</span></code></pre></div>
+<h4 id="c-try-read">C++ Try Read</h4>
+<p>It tries to turn deserialize current bytes into a specific data type using the &lt;&lt; operator of FMemoryReader</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutValue</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Returns <strong>false</strong> if FMemoryReader returned IsError() or IsCriticalError()</p>
+</div>
+<h4 id="blueprints-try-read">Blueprints Try Read</h4>
+<p>Uses <strong>TryReadT(...)</strong> to return a specific type in blueprints.</p>
+<p>UDataSerializerLib is used for object deserialization</p>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadInt</span><span class="p">(</span><span class="n">int32</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutInt</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutInt</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadInt64</span><span class="p">(</span><span class="n">int64</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutInt64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutInt64</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadFloat</span><span class="p">(</span><span class="kt">float</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutFloat</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutFloat</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadDouble</span><span class="p">(</span><span class="kt">double</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutDouble</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutDouble</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadBool</span><span class="p">(</span><span class="kt">bool</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutBool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutBool</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadUInt8</span><span class="p">(</span><span class="n">uint8</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutUInt8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutUInt8</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadVector</span><span class="p">(</span><span class="n">FVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutVector</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadIntVector</span><span class="p">(</span><span class="n">FIntVector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutIntVector</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutIntVector</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadVector2D</span><span class="p">(</span><span class="n">FVector2D</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutVector2D</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutVector2D</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadIntPoint</span><span class="p">(</span><span class="n">FIntPoint</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutIntPoint</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutIntPoint</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadRotator</span><span class="p">(</span><span class="n">FRotator</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutRotator</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutRotator</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadTransform</span><span class="p">(</span><span class="n">FTransform</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutTransform</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutTransform</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadString</span><span class="p">(</span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutString</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">TryReadT</span><span class="p">(</span><span class="n">OutString</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadObject</span><span class="p">(</span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">InObjectOuter</span><span class="p">,</span><span class="w"> </span><span class="n">UObject</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutObject</span><span class="p">)</span>
+</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="p">{</span>
+</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="w">    </span><span class="n">FMemoryReader</span><span class="o">&amp;</span><span class="w"> </span><span class="n">memoryReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetMemoryReaderRef</span><span class="p">();</span>
+</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">UDataSerializerLib</span><span class="o">::</span><span class="n">DeSerializeObjectCpp</span><span class="p">(</span><span class="n">memoryReader</span><span class="p">,</span><span class="w"> </span><span class="n">InObjectOuter</span><span class="p">,</span><span class="w"> </span><span class="n">OutObject</span><span class="p">);</span>
+</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="p">}</span>
+</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>
+</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">UDeSerializerObject::TryReadObjects</span><span class="p">(</span><span class="n">UObject</span><span class="o">*</span><span class="w"> </span><span class="n">InObjectOuter</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UObject</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutObjects</span><span class="p">)</span>
+</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="p">{</span>
+</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="w">    </span><span class="n">FMemoryReader</span><span class="o">&amp;</span><span class="w"> </span><span class="n">memoryReader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetMemoryReaderRef</span><span class="p">();</span>
+</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">UDataSerializerLib</span><span class="o">::</span><span class="n">DeSerializeObjectsCpp</span><span class="p">(</span><span class="n">memoryReader</span><span class="p">,</span><span class="w"> </span><span class="n">InObjectOuter</span><span class="p">,</span><span class="w"> </span><span class="n">OutObjects</span><span class="p">);</span>
+</span><span id="__span-15-24"><a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="example">Example</h2>
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UEasySettingsSubsystem::SaveContainer</span><span class="p">()</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="p">{</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">IsValid</span><span class="p">(</span><span class="n">SettingsSetter</span><span class="p">))</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="c1">// Prepare empty byte container</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">uint8</span><span class="o">&gt;</span><span class="w"> </span><span class="n">bytes</span><span class="p">;</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="n">FMemoryWriter</span><span class="w"> </span><span class="n">writer</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="c1">// Write bytes from settings</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">    </span><span class="n">SettingsSetter</span><span class="o">-&gt;</span><span class="n">Write</span><span class="p">(</span><span class="n">writer</span><span class="p">);</span>
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">    </span><span class="c1">// Save to file</span>
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">    </span><span class="n">FString</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetContainerSavePath</span><span class="p">();</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="w">    </span><span class="n">UDataSerializerLib</span><span class="o">::</span><span class="n">WriteBytesToDiskCompressed</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">);</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="p">}</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UEasySettingsSetter::Write</span><span class="p">(</span><span class="n">FMemoryWriter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">MemoryWriter</span><span class="p">)</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="p">{</span>
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EasySettings</span><span class="o">::</span><span class="n">VALUES_NUM</span><span class="p">;</span>
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">    </span><span class="n">check</span><span class="p">((</span><span class="n">Values</span><span class="p">.</span><span class="n">Num</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">n</span><span class="p">))</span>
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a><span class="w">    </span><span class="c1">// Write each float element</span>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TTuple</span><span class="o">&lt;</span><span class="n">EasySettings</span><span class="o">::</span><span class="n">MapKey</span><span class="p">,</span><span class="w"> </span><span class="n">EasySettings</span><span class="o">::</span><span class="n">MapValue</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">pair</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Values</span><span class="p">)</span>
+</span><span id="__span-16-24"><a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-16-25"><a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">bDefault</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">bDefaultValue</span><span class="p">;</span>
+</span><span id="__span-16-26"><a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">        </span><span class="n">MemoryWriter</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">bDefault</span><span class="p">;</span>
+</span><span id="__span-16-27"><a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+</span><span id="__span-16-28"><a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="w">        </span><span class="n">MemoryWriter</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span><span id="__span-16-29"><a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-16-30"><a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="p">}</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../blueprint-compile/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Blueprint Compile">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Blueprint Compile
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../easy-settings/" class="md-footer__link md-footer__link--next" aria-label="Next: Easy Settings">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Easy Settings
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>

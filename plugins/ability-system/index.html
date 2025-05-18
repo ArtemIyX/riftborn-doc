@@ -1,0 +1,1611 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../actor-pool/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Ability System - Riftborn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ability-system" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Riftborn Documentation" class="md-header__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Riftborn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ability System
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Riftborn Documentation" class="md-nav__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Riftborn Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Welcome to Riftborn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Plugins
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Plugins
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Ability System
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ability System
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      About the plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Effects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#periodicinstanteffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      PeriodicInstantEffect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#durationeffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      DurationEffect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#periodiceffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      PeriodicEffect
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ability-system-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ability System Component
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Has Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-attribute-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Attribute List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-execution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute Execution order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effect-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effect Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Effect Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Has Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-effect-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Effect List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actor-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Actor Pool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-asset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Asset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Logger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Movement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Advanced Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blueprint-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blueprint Compile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-serializer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Serializer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../easy-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Easy Settings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replicated-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Replicated Object
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      About the plugin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attributes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Effects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#periodicinstanteffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      PeriodicInstantEffect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#durationeffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      DurationEffect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#periodiceffect" class="md-nav__link">
+    <span class="md-ellipsis">
+      PeriodicEffect
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ability-system-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ability System Component
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attribute-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has-attribute" class="md-nav__link">
+    <span class="md-ellipsis">
+      Has Attribute
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-attribute-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Attribute List
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-execution-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      Attribute Execution order
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#effect-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Effect Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Effect Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Remove Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      Has Effect
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-effect-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get Effect List
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Replication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ability-system">Ability System</h1>
+<h2 id="about-the-plugin">About the plugin</h2>
+<blockquote>
+<p><a href="https://github.com/ArtemIyX/AbilitySystemUnreal">Github Repository</a></p>
+</blockquote>
+<p>Author plugin written for Riftborn. It implements the "attributes" and "effects" system.</p>
+<ul>
+<li><strong>Attributes</strong> are entities that store a float variable.</li>
+<li><strong>Effects</strong> are entities that modify attributes.</li>
+</ul>
+<h2 id="attributes">Attributes</h2>
+<p>You can create your own attributes by inheriting from <em>UAttribute</em>.</p>
+<div class="language-c++ highlight"><span class="filename">ArmorAttribute.h</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">UCLASS</span><span class="p">(</span><span class="n">Blueprintable</span><span class="p">,</span><span class="w"> </span><span class="n">BlueprintType</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">HUM_API</span><span class="w"> </span><span class="n">UArmorAttribute</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UAttribute</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">UArmorAttribute</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FObjectInitializer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InObjectInitializer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FObjectInitializer</span><span class="o">::</span><span class="n">Get</span><span class="p">());</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="n">FString</span><span class="w"> </span><span class="n">GetDebugString_Implementation</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">};</span>
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Be sure to overwrite the <em>GetDebugString</em> function so that other developers can understand which 
+attribute currently exists on the actor.</p>
+</div>
+<hr />
+<p>There are some events that can be useful for tracking the status of Attribute:
+- OnMinValueChanged
+- OnMaxValueChanged
+- OnValueChanged
+- OnValueMinThresholdReached
+- OnValueMaxThresholdReached</p>
+<h2 id="effects">Effects</h2>
+<p>There are only 4 types of effect in the plugin:</p>
+<ul>
+<li>Effect</li>
+<li>PeriodicInstantEffect</li>
+<li>DurationEffect</li>
+<li>PeriodicEffect </li>
+</ul>
+<pre class="mermaid"><code>classDiagram
+    UAdvancedReplicatedObject &lt;|-- UBasicAsEntity
+    UBasicAsEntity &lt;|-- UEffect
+    UEffect &lt;|-- UDurationEffect
+    UEffect &lt;|-- UPeriodicInstantEffect
+    UDurationEffect &lt;|-- UPeriodicEffect
+
+    class UAdvancedReplicatedObject {
+    }
+
+    class UBasicAsEntity {
+    }
+
+    class UEffect {
+        +OnAttributeListUpdated()
+        +OnAttributeAdded()
+        +OnAttributeRemoving()
+        +OnEffectListUpdated()
+        +OnEffectAdded()
+        +OnEffectRemoving()
+        +StartWork()
+        +OnWorkEnded()
+        +GetOwningComponent() UASComponent
+    }
+
+    class UDurationEffect {
+        +float Time
+    }
+
+    class UPeriodicInstantEffect {
+        +float Period
+    }
+
+    class UPeriodicEffect {
+        +float Period
+    }</code></pre>
+<h3 id="effect">Effect</h3>
+<p>UEffect is the base abstract class for all effects.</p>
+<div class="language-c++ highlight"><span class="filename">Effect.h</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ABILITYSYSTEM_API</span><span class="w"> </span><span class="n">UEffect</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UBasicAsEntity</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It automatically receives notifications about changes to other effects and attributes.</p>
+</div>
+<p>When an effect is added, it starts working. When an effect is removed, it finishes the job.</p>
+<div class="language-c++ highlight"><span class="filename">Effect.h</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintNativeEvent</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="s">&quot;Effect|Main&quot;</span><span class="p">)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">StartWork</span><span class="p">();</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintNativeEvent</span><span class="p">,</span><span class="w"> </span><span class="n">Category</span><span class="o">=</span><span class="s">&quot;Effect|Main&quot;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">void</span><span class="w"> </span><span class="n">OnWorkEnded</span><span class="p">();</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Effect life cycle</p>
+<p>You can call <strong>EndWork()</strong> to terminate the effect.</p>
+<p>This will call the <strong>EffectHasEnded(this)</strong> method of the effect owner (<em>GetOwningComponent()</em>), which will properly clear memory and remove the effect from the array by calling <strong>OnWorkEnded()</strong> and <strong>ConditionalBeginDestroy()</strong> on it</p>
+</div>
+<h3 id="periodicinstanteffect">PeriodicInstantEffect</h3>
+<p>PeriodicInstantEffect starts a looped timer for an "Tick" action.</p>
+<div class="language-C++ highlight"><span class="filename">PeriodicInstantEffect.h</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ABILITYSYSTEM_API</span><span class="w"> </span><span class="n">UPeriodicInstantEffect</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UEffect</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On <strong>StartWork()</strong> it calls <strong>RunPeriodicTimer()</strong>, on <strong>EndWork()</strong> it calls <strong>ClearPeriodicTimer()</strong></p>
+</div>
+<div class="language-C++ highlight"><span class="filename">PeriodicInstantEffect.cpp</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UPeriodicInstantEffect::RunPeriodicTimer</span><span class="p">()</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">FTimerManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetTimerManager</span><span class="p">();</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">manager</span><span class="p">.</span><span class="n">IsTimerActive</span><span class="p">(</span><span class="n">PeriodicTimerHandle</span><span class="p">))</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="n">ClearTimer</span><span class="p">(</span><span class="n">PeriodicTimerHandle</span><span class="p">);</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">manager</span><span class="p">.</span><span class="n">SetTimer</span><span class="p">(</span><span class="n">PeriodicTimerHandle</span><span class="p">,</span><span class="w"> </span><span class="n">FTimerDelegate</span><span class="o">::</span><span class="n">CreateUObject</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">UPeriodicInstantEffect</span><span class="o">::</span><span class="n">PeriodTick</span><span class="p">),</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">                     </span><span class="n">FMath</span><span class="o">::</span><span class="n">IsNearlyZero</span><span class="p">(</span><span class="n">Period</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">0.1f</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Period</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">UPeriodicInstantEffect::ClearPeriodicTimer</span><span class="p">()</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">{</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">FTimerManager</span><span class="o">&amp;</span><span class="w"> </span><span class="n">manager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetWorld</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">GetTimerManager</span><span class="p">();</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">manager</span><span class="p">.</span><span class="n">IsTimerActive</span><span class="p">(</span><span class="n">PeriodicTimerHandle</span><span class="p">))</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">        </span><span class="n">manager</span><span class="p">.</span><span class="n">ClearTimer</span><span class="p">(</span><span class="n">PeriodicTimerHandle</span><span class="p">);</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>You just need to override <strong>PeriodTick()</strong> in your class for looped actions.</p>
+<div class="language-C++ highlight"><span class="filename">PeriodicInstantEffect.h</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cm">/**</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cm">* @brief Called periodically</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="cm">*</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="cm">* The `PeriodTick` function is executed at regular intervals while the effect is active. It allows the developer</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="cm">* to define custom logic that should occur periodically, such as applying damage, healing, or other time-based effects.</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="cm">* This function is intended to be overridden in derived classes for specific behavior.</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="cm">*/</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintNativeEvent</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="kt">void</span><span class="w"> </span><span class="n">PeriodTick</span><span class="p">();</span>
+</span></code></pre></div>
+<p>You can adjust the intervals of the effect in Blueprints by changing the ‘Period’ field.</p>
+<div class="language-C++ highlight"><span class="filename">PeriodicInstantEffect.h</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintReadWrite</span><span class="p">,</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">EditDefaultsOnly</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">UIMin</span><span class="o">=</span><span class="s">&quot;0.0001&quot;</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="n">ClampMin</span><span class="o">=</span><span class="s">&quot;0.0001&quot;</span><span class="p">),</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">Category</span><span class="o">=</span><span class="s">&quot;PeriodicEffect&quot;</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kt">float</span><span class="w"> </span><span class="n">Period</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="durationeffect">DurationEffect</h3>
+<p>This effect activates a timer at the beginning of its work. When the timer expires, the effect automatically ends.
+Useful for temporary effects such as "damage protection".</p>
+<div class="language-c++ highlight"><span class="filename">DurationEffect.h</span><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ABILITYSYSTEM_API</span><span class="w"> </span><span class="n">UDurationEffect</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UEffect</span>
+</span></code></pre></div>
+<p>You can adjust the time of the effect in Blueprints by changing the ‘Time’ field.</p>
+<div class="language-c++ highlight"><span class="filename">DurationEffect.h</span><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">UPROPERTY</span><span class="p">(</span><span class="n">BlueprintReadWrite</span><span class="p">,</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">EditDefaultsOnly</span><span class="p">,</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="n">meta</span><span class="o">=</span><span class="p">(</span><span class="n">UIMin</span><span class="o">=</span><span class="s">&quot;0.0001&quot;</span><span class="p">,</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">        </span><span class="n">ClampMin</span><span class="o">=</span><span class="s">&quot;0.0001&quot;</span><span class="p">),</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="n">Category</span><span class="o">=</span><span class="s">&quot;DurationEffect&quot;</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kt">float</span><span class="w"> </span><span class="n">Time</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="periodiceffect">PeriodicEffect</h3>
+<p>This effect inherits UDurationEffect, but has the same tick logic as PeriodicInstantEffect.</p>
+<div class="admonition tip inline">
+<p class="admonition-title">Tip</p>
+<p>Can be useful for effects like ‘Health Regeneration’, where the effect restores 25 health every second, but disappears after 5 seconds.</p>
+</div>
+<div class="language-c++ highlight"><span class="filename">PeriodicEffect.h</span><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ABILITYSYSTEM_API</span><span class="w"> </span><span class="n">UPeriodicEffect</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UDurationEffect</span>
+</span></code></pre></div>
+<div class="language-c++ highlight"><span class="filename">PeriodicEffect.h</span><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">UFUNCTION</span><span class="p">(</span><span class="n">BlueprintNativeEvent</span><span class="p">)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">PeriodTick</span><span class="p">();</span>
+</span></code></pre></div>
+<h2 id="ability-system-component">Ability System Component</h2>
+<p>This class is the main manager in the effects and attributes system.
+It contains effects and attributes as an array of objects and operates them.</p>
+<div class="language-c++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ABILITYSYSTEM_API</span><span class="w"> </span><span class="n">UASComponent</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UActorComponent</span>
+</span></code></pre></div>
+<pre class="mermaid"><code>flowchart LR
+    UASComponent --&gt;|TArray| Effects
+    UASComponent --&gt;|TArray| Attributes
+
+    subgraph Effects
+        Effect1
+        Effect2
+        ...
+    end
+
+    subgraph Attributes
+        Attr1
+        Attr2
+        ...
+    end</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Since this is a actor component, there is no limit to the number of component per actor, but <strong>1 manager per 1 actor is recommended</strong>. This will make it easier to manipulate objects</p>
+</div>
+<hr />
+<p>There are some events that can be useful for tracking the status of Ability System Component:</p>
+<ul>
+<li>OnEffectAdded</li>
+<li>OnEffectStacked</li>
+<li>OnEffectRemoved</li>
+<li>OnEffectListUpdated</li>
+<li>OnAttributeAdded</li>
+<li>OnAttributeRemoved</li>
+<li>OnAttributeListUpdated</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can overwrite any methods in a class for custom managers</p>
+</div>
+<h2 id="attribute-management">Attribute Management</h2>
+<p>You can use the following methods to handle the attributes of this component:</p>
+<ul>
+<li><a href="#add-attribute">Add Attribute</a></li>
+<li><a href="#remove-attribute">Remove Attribute</a></li>
+<li><a href="#get-attribute">Get Attribute</a></li>
+<li><a href="#has-attribute">Has Attribute</a></li>
+<li><a href="#get-attribute-list">Get Attribute List</a></li>
+</ul>
+<hr />
+<h3 id="add-attribute">Add Attribute</h3>
+<blockquote>
+<p>This method adds a new attribute on a class basis. You will be able to edit the attribute after adding it.</p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">virtual</span><span class="w"> </span><span class="n">UAttribute</span><span class="o">*</span><span class="w"> </span><span class="nf">AddAttribute</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AttributeClass</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Notification system</p>
+<p>All attributes and all effects will be notified of the new attribute and that the attribute list has changed.
+    <div class="language-C++ highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">Attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">OnAttributeAdded</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">Attributes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">OnAttributeListUpdated</span><span class="p">();</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">}</span>
+</span></code></pre></div></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Duplicate exception</p>
+<p>You can only add one attribute of a single class. If you try to add another duplicate, the method will ignore the attempt and return nullptr.
+    <div class="language-c++ highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">entity</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">entity</span><span class="o">-&gt;</span><span class="n">IsA</span><span class="p">(</span><span class="n">AttributeClass</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+</span></code></pre></div></p>
+</div>
+<hr />
+<h3 id="remove-attribute">Remove Attribute</h3>
+<blockquote>
+<p>The methods remove the attribute from the attribute array.</p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">RemoveAttributeByEntity</span><span class="p">(</span><span class="n">UAttribute</span><span class="o">*</span><span class="w"> </span><span class="n">InAttribute</span><span class="p">);</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">RemoveAttributeByClass</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AttributeClass</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Notification system</p>
+<p>All attributes and all effects will be notified of the selected attribute and that the attribute list has changed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Memory clearing</p>
+<p>The object is cleared from memory after deletion and is no longer available. Make sure you clear memory (timers, allocated memory within the object, linked systems, etc.)</p>
+</div>
+<hr />
+<h3 id="get-attribute">Get Attribute</h3>
+<blockquote>
+<p>The method returns the first attribute in the list that matches the class.
+If there are two attributes with the same class in the array, it will return the first one. </p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">virtual</span><span class="w"> </span><span class="n">UAttribute</span><span class="o">*</span><span class="w"> </span><span class="nf">GetAttribute</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AttributeClass</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Object Class</p>
+<p>The object class check is performed as follows:
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">attribute</span><span class="o">-&gt;</span><span class="n">IsA</span><span class="p">(</span><span class="n">AttributeClass</span><span class="p">))</span>
+</span></code></pre></div></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Nullptr return</p>
+<p>Returns <strong>nullptr</strong> if the attribute could not be found.</p>
+</div>
+<hr />
+<h3 id="has-attribute">Has Attribute</h3>
+<blockquote>
+<p>Checks if the attribute is in the list. Uses GetAttribute() to get the attribute.
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">HasAttribute</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AttributeClass</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div></p>
+</blockquote>
+<hr />
+<h3 id="get-attribute-list">Get Attribute List</h3>
+<blockquote>
+<p>Getter for a list of attributes. Returns the current state of attribute list</p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">GetAttributeList</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutAttributes</span><span class="p">);</span>
+</span></code></pre></div>
+<hr />
+<h3 id="attribute-execution-order">Attribute Execution order</h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Add Attribute Exeuction Order</label><label for="__tabbed_1_2">Remove Attribute Execution Order</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-text highlight"><pre><span></span><code>1. Attributes.Add()
+2. Attribute-&gt;StartWork()
+3. Attributes:  OnAttributeAdded, OnAttributeListUpdated
+4. Effects:     OnAttributeAdded, OnAttributeListUpdated
+5. OnAttributeAdded.Broadcast()
+6. OnAttributeListUpdated.Broadcast()
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-text highlight"><pre><span></span><code>1. OnWorkEnded()
+2. Attributes:  OnAttributeRemoving()
+3. Effects:     OnAttributeRemoving()
+4. OnAttributeRemoved.Broadcast()
+5. Attribute-&gt;ConditionalBeginDestroy()
+6. Attributes.RemoveAt(index)
+7. Attributes:  OnAttributeListUpdated()
+8. Effects:     OnAttributeListUpdated()
+9. OnAttributeListUpdated.Broadcast()
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="effect-management">Effect Management</h2>
+<p>You can use the following methods to handle the attributes of this component:</p>
+<ul>
+<li><a href="#add-effect">Add Effect</a></li>
+<li><a href="#remove-effect">Remove Effect</a></li>
+<li><a href="#get-effect">Get Effect</a></li>
+<li><a href="#has-effect">Has Effect</a></li>
+<li><a href="#get-effect-list">Get Effect List</a></li>
+</ul>
+<h3 id="add-effect">Add Effect</h3>
+<blockquote>
+<p>The method adds the effect to the list of effects.</p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">virtual</span><span class="w"> </span><span class="n">UEffect</span><span class="o">*</span><span class="w"> </span><span class="nf">AddEffect</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UEffect</span><span class="o">&gt;</span><span class="w"> </span><span class="n">EffectClass</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Notification system</p>
+<p>All attributes and all effects will be notified of the selected effect and that the effect list has changed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Stacking</p>
+<p>If a duplicate effect by class is found, it will try to call <strong>Stack()</strong>.</p>
+<p>a. If Stack is successful, <strong>OnEffectStacked()</strong> will be called.</p>
+<p>b. If Stack is not possible, the temporary object will be deleted and the method will <strong>return nullptr</strong>.</p>
+</div>
+<hr />
+<h3 id="remove-effect">Remove Effect</h3>
+<blockquote>
+<p>The methods remove the effect from the effects array.</p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">RemoveEffectByEntity</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UEffect</span><span class="o">*</span><span class="w"> </span><span class="n">InEffect</span><span class="p">);</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">RemoveEffectByClass</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UEffect</span><span class="o">&gt;</span><span class="w"> </span><span class="n">EffectClass</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Notification system</p>
+<p>All attributes and all effects will be notified of the selected effect and that the effect list has changed.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Memory clearing</p>
+<p>The object is cleared from memory after deletion and is no longer available. Make sure you clear memory (timers, allocated memory within the object, linked systems, etc.)</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Effect life cycle</p>
+<p>You don't have to remove the effect from its owner component. You just need to call <strong>EndWork()</strong> on the effect.</p>
+<p>This will call the <strong>EffectHasEnded(this)</strong> method of the effect owner (<em>GetOwningComponent()</em>), which will properly clear memory and remove the effect from the array by calling <strong>OnWorkEnded()</strong> and <strong>ConditionalBeginDestroy()</strong> on it</p>
+</div>
+<hr />
+<h3 id="get-effect">Get Effect</h3>
+<blockquote>
+<p>The method returns the first effect in the list that matches the class.
+If there are two effects with the same class in the array, it will return the first one. </p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">virtual</span><span class="w"> </span><span class="n">UEffect</span><span class="o">*</span><span class="w"> </span><span class="nf">GetEffect</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UEffect</span><span class="o">&gt;</span><span class="w"> </span><span class="n">EffectClass</span><span class="p">);</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Object Class</p>
+<p>The object class check is performed as follows:
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">ef</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ef</span><span class="o">-&gt;</span><span class="n">IsA</span><span class="p">(</span><span class="n">EffectClass</span><span class="p">))</span>
+</span></code></pre></div></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Nullptr return</p>
+<p>Returns <strong>nullptr</strong> if the effect could not be found.</p>
+</div>
+<hr />
+<h3 id="has-effect">Has Effect</h3>
+<blockquote>
+<p>Checks if the effect is in the list. Uses GetEffect() to get the attribute.</p>
+</blockquote>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">HasEffect</span><span class="p">(</span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UEffect</span><span class="o">&gt;</span><span class="w"> </span><span class="n">EffectClass</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<hr />
+<h3 id="get-effect-list">Get Effect List</h3>
+<blockquote>
+<p>Getter for a list of effects. Returns the current state of effect list</p>
+<div class="language-C++ highlight"><span class="filename">ASComponent.h</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">GetEffectList</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UEffect</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutEffects</span><span class="p">);</span>
+</span></code></pre></div>
+</blockquote>
+<h2 id="replication">Replication</h2>
+<p>The plugin fully supports replication and uses the <a href="https://www.kierannewland.co.uk/push-model-networking-unreal-engine/">Unreal Push Network Model</a> to optimise network.</p>
+<p>To replicate UObjects, the plugin uses <a href="https://github.com/ArtemIyX/ReplicatedObjectUnreal">ReplicatedObject</a>.</p>
+<p>For full functionality, you must enable Push Model in the project and replicate the ASComponent in constructor
+<div class="language-C++ highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">AbilitySystemComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateDefaultSubobject</span><span class="o">&lt;</span><span class="n">UASComponent</span><span class="o">&gt;</span><span class="p">(</span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;AS&quot;</span><span class="p">));</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">AbilitySystemComponent</span><span class="o">-&gt;</span><span class="n">SetIsReplicated</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</span></code></pre></div></p>
+<div class="language-ini highlight"><span class="filename">DefaultEngine.ini</span><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">[SystemSettings]</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="na">net.IsPushModelEnabled</span><span class="o">=</span><span class="s">1</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="na">net.PushModelSkipUndirtiedReplication</span><span class="o">=</span><span class="s">1</span>
+</span></code></pre></div>
+<h2 id="examples">Examples</h2>
+<p>You can set specific values to any attribute if you have a need to dynamically configure each attribute for different actors.</p>
+<div class="language-C++ highlight"><span class="filename">AHumAbilityCharacter.cpp</span><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AHumAbilityCharacter::AddDefaultAttributes_Implementation</span><span class="p">()</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="p">{</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">int32</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultAttributes</span><span class="p">.</span><span class="n">Num</span><span class="p">();</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">int32</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">FDefaultPlayerAttribute</span><span class="o">&amp;</span><span class="w"> </span><span class="n">el</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DefaultAttributes</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">AttributeClass</span><span class="p">)</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">UAttribute</span><span class="o">*</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbilitySystemComponent</span><span class="o">-&gt;</span><span class="n">AddAttribute</span><span class="p">(</span><span class="n">el</span><span class="p">.</span><span class="n">AttributeClass</span><span class="p">))</span>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="w">            </span><span class="p">{</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="w">                </span><span class="n">UAttributeSettingsDataAsset</span><span class="o">*</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">el</span><span class="p">.</span><span class="n">Settings</span><span class="p">.</span><span class="n">LoadSynchronous</span><span class="p">();</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">settings</span><span class="p">))</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="w">                </span><span class="p">{</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a><span class="w">                    </span><span class="n">ApplySettingsForAttribute</span><span class="p">(</span><span class="n">entity</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">);</span>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-28-17"><a id="__codelineno-28-17" name="__codelineno-28-17" href="#__codelineno-28-17"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-28-18"><a id="__codelineno-28-18" name="__codelineno-28-18" href="#__codelineno-28-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-28-19"><a id="__codelineno-28-19" name="__codelineno-28-19" href="#__codelineno-28-19"></a><span class="p">}</span>
+</span><span id="__span-28-20"><a id="__codelineno-28-20" name="__codelineno-28-20" href="#__codelineno-28-20"></a>
+</span><span id="__span-28-21"><a id="__codelineno-28-21" name="__codelineno-28-21" href="#__codelineno-28-21"></a>
+</span><span id="__span-28-22"><a id="__codelineno-28-22" name="__codelineno-28-22" href="#__codelineno-28-22"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AHumAbilityCharacter::ApplySettingsForAttribute_Implementation</span><span class="p">(</span>
+</span><span id="__span-28-23"><a id="__codelineno-28-23" name="__codelineno-28-23" href="#__codelineno-28-23"></a><span class="w">    </span><span class="n">UAttribute</span><span class="o">*</span><span class="w"> </span><span class="n">InAttribute</span><span class="p">,</span>
+</span><span id="__span-28-24"><a id="__codelineno-28-24" name="__codelineno-28-24" href="#__codelineno-28-24"></a><span class="w">    </span><span class="n">UAttributeSettingsDataAsset</span><span class="o">*</span><span class="w"> </span><span class="n">InSettings</span><span class="p">)</span>
+</span><span id="__span-28-25"><a id="__codelineno-28-25" name="__codelineno-28-25" href="#__codelineno-28-25"></a><span class="p">{</span>
+</span><span id="__span-28-26"><a id="__codelineno-28-26" name="__codelineno-28-26" href="#__codelineno-28-26"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IsValid</span><span class="p">(</span><span class="n">InAttribute</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">IsValid</span><span class="p">(</span><span class="n">InSettings</span><span class="p">))</span>
+</span><span id="__span-28-27"><a id="__codelineno-28-27" name="__codelineno-28-27" href="#__codelineno-28-27"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-28-28"><a id="__codelineno-28-28" name="__codelineno-28-28" href="#__codelineno-28-28"></a><span class="w">        </span><span class="n">InAttribute</span><span class="o">-&gt;</span><span class="n">SetMinValue</span><span class="p">(</span><span class="n">InSettings</span><span class="o">-&gt;</span><span class="n">MinValue</span><span class="p">);</span>
+</span><span id="__span-28-29"><a id="__codelineno-28-29" name="__codelineno-28-29" href="#__codelineno-28-29"></a><span class="w">        </span><span class="n">InAttribute</span><span class="o">-&gt;</span><span class="n">SetMaxValue</span><span class="p">(</span><span class="n">InSettings</span><span class="o">-&gt;</span><span class="n">MaxValue</span><span class="p">);</span>
+</span><span id="__span-28-30"><a id="__codelineno-28-30" name="__codelineno-28-30" href="#__codelineno-28-30"></a><span class="w">        </span><span class="n">InAttribute</span><span class="o">-&gt;</span><span class="n">SetValue</span><span class="p">(</span><span class="n">InSettings</span><span class="o">-&gt;</span><span class="n">InitialValue</span><span class="p">);</span>
+</span><span id="__span-28-31"><a id="__codelineno-28-31" name="__codelineno-28-31" href="#__codelineno-28-31"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-28-32"><a id="__codelineno-28-32" name="__codelineno-28-32" href="#__codelineno-28-32"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<p>You can cache frequently used attributes to make it easier to retrieve them in future code.</p>
+<div class="language-c++ highlight"><span class="filename">AHumAbilityCharacter.cpp</span><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">AHumAbilityCharacter</span><span class="o">::</span><span class="n">GetHealth</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="p">{</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">HealthAttribute</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">IsValid</span><span class="p">(</span><span class="n">HealthAttribute</span><span class="p">.</span><span class="n">Get</span><span class="p">()))</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">AbilitySystemComponent</span><span class="p">)</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="w">            </span><span class="c1">// Remove const from the current object to modify HealthAttribute</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="w">            </span><span class="k">auto</span><span class="w"> </span><span class="n">nonConstThis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const_cast</span><span class="o">&lt;</span><span class="n">AHumAbilityCharacter</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="w">            </span><span class="n">nonConstThis</span><span class="o">-&gt;</span><span class="n">HealthAttribute</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AbilitySystemComponent</span><span class="o">-&gt;</span><span class="n">Attribute</span><span class="p">(</span><span class="n">UHealthAttribute</span><span class="o">::</span><span class="n">StaticClass</span><span class="p">());</span>
+</span><span id="__span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">HealthAttribute</span><span class="p">;</span>
+</span><span id="__span-29-13"><a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<p>You can bind to attribute events after you have added them to list.</p>
+<div class="language-c++ highlight"><span class="filename">AHumAbilityCharacter.cpp</span><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AHumAbilityCharacter::BeginPlay</span><span class="p">()</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="p">{</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">    </span><span class="n">Super</span><span class="o">::</span><span class="n">BeginPlay</span><span class="p">();</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">HasAuthority</span><span class="p">())</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">        </span><span class="n">AddDefaultAttributes</span><span class="p">();</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="w">        </span><span class="n">AddDefaultEffects</span><span class="p">();</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="n">UAttribute</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetHealth</span><span class="p">())</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="w">            </span><span class="n">hp</span><span class="o">-&gt;</span><span class="n">OnValueMinThresholdReached</span><span class="p">.</span><span class="n">AddDynamic</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">AHumAbilityCharacter</span><span class="o">::</span><span class="n">OnHpLost</span><span class="p">);</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Authority</p>
+<p>Working with attributes and effects is possible only on the server. Check <strong>HasAuthority()</strong> before calling methods.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Replication</p>
+<p>Attributes and Effects are replicated, so it is possible to find out the state of an entity on the client side.</p>
+</div>
+<hr />
+<p>You can change the value of the attributes as you like.</p>
+<div class="language-C++ highlight"><span class="filename">AHumAbilityCharacter.cpp</span><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">hp</span><span class="o">-&gt;</span><span class="n">SetValue</span><span class="p">(</span><span class="n">hp</span><span class="o">-&gt;</span><span class="n">GetCurrentValue</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">FMath</span><span class="o">::</span><span class="n">Abs</span><span class="p">(</span><span class="n">Amount</span><span class="p">));</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An attribute value cannot be greater than MaxValue, and less than MinValue. It will be clamped.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome to Riftborn">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Welcome to Riftborn
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../actor-pool/" class="md-footer__link md-footer__link--next" aria-label="Next: Actor Pool">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Actor Pool
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
