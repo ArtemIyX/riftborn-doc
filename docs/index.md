@@ -9,7 +9,7 @@
 - [Advanced Movement](plugins/advanced-movement.md)
 - [Advanced Sessions](plugins/advanced-sessions.md)
 - [Blueprint Compile](plugins/blueprint-compile.md)
-- Data Serializer
+- [Data Serializer](plugins/data-serializer.md)
 - Easy Settings
 - Menu Plugin
 - [Replicated Object](plugins/replicated-object.md)
