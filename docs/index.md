@@ -6,7 +6,7 @@
 - [Actor Pool](plugins/actor-pool.md)
 - [Advanced Asset](plugins/advanced-asset.md)
 - [Advanced Logger](plugins/advanced-logger.md)
-- Advanced Movement
+- [Advanced Movement](plugins/advanced-movement.md)
 - [Advanced Sessions](plugins/advanced-sessions.md)
 - [Blueprint Compile](plugins/blueprint-compile.md)
 - Data Serializer
