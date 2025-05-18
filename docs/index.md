@@ -10,9 +10,7 @@
 - [Advanced Sessions](plugins/advanced-sessions.md)
 - [Blueprint Compile](plugins/blueprint-compile.md)
 - [Data Serializer](plugins/data-serializer.md)
-- Easy Settings
-- Menu Plugin
+- [Easy Settings](plugins/easy-settings.md)
 - [Replicated Object](plugins/replicated-object.md)
-- Runtime Image Loader
-- Universal Voice Chat Pro
 - Melee Master
+- Menu Plugin
