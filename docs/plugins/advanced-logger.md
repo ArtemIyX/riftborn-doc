@@ -1,4 +1,4 @@
-# Advanced Asset
+# Advanced Logger
 
 ## About the plugin
 
