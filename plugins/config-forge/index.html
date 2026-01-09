@@ -1,0 +1,2865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../blueprint-compile/">
+      
+      
+        <link rel="next" href="../data-serializer/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Config Forge - Riftborn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#config-forge" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Riftborn Documentation" class="md-header__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Riftborn Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Config Forge
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Riftborn Documentation" class="md-nav__button md-logo" aria-label="Riftborn Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Riftborn Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to Riftborn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Plugins
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ability-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ability System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../actor-pool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Actor Pool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-asset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Asset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-logger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Logger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-movement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Movement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blueprint-compile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprint Compile
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config Forge
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config Forge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About the plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-config-setup-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Config Setup Asset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configure Asset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configure Asset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-developer-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configure Developer Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigpathprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigPathProvider
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgedevelopersettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeDeveloperSettings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgefileruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeFileRuntime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgecategoryruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeCategoryRuntime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigvalueobjectruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigValueObjectRuntime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdynamicvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FDynamicValue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgesubsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeSubsystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UConfigForgeSubsystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fconfigforgefiledata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FConfigForgeFileData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FConfigForgeFileData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fconfigforgefiledata-guid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FConfigForgeFileData GUID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asset Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-setupasset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get SetupAsset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-categories-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File Categories By Name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-category-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Category Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-readwrite-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk Read/Write Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disk Read/Write Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-single-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-single-file-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Single File (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-single-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-single-file_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        All files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="All files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-all-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load ALL Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-all-file-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load ALL File (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-all-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save ALL Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-all-files-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save ALL Files (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selected-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selected Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selected Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-selected-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Selected Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-selected-files-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Selected Files (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-selected-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Selected Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-selected-files-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Selected Files (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-all-runtime-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get All Runtime Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-categories-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Categories (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-category-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Category (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field-full-info-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field (Full info return)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field-by-file-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field (By File Object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-fields-by-file-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Fields (By File Object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-fields-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Fields (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-all-files-loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On All Files Loaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-all-files-saved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On All Files Saved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-file-loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On File Loaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-file-saved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On File Saved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-value-changed-uconfigvalueobjectruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Value Changed (UConfigValueObjectRuntime)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-async-k2-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blueprint Async (K2) Nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blueprint Workflow Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blueprint Workflow Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-serializer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Serializer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../easy-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Easy Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../replicated-object/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Replicated Object
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-plugin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About the plugin
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-config-setup-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Create Config Setup Asset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configure-asset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configure Asset
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Configure Asset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#meta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meta
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-developer-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Configure Developer Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigpathprovider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigPathProvider
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgedevelopersettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeDeveloperSettings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgefileruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeFileRuntime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgecategoryruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeCategoryRuntime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigvalueobjectruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigValueObjectRuntime
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fdynamicvalue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FDynamicValue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uconfigforgesubsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UConfigForgeSubsystem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="UConfigForgeSubsystem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fconfigforgefiledata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FConfigForgeFileData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FConfigForgeFileData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fconfigforgefiledata-guid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FConfigForgeFileData GUID
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asset-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Asset Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Asset Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-setupasset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get SetupAsset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File Names
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-categories-by-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File Categories By Name
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-file-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get File Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-category-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Category Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disk-readwrite-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disk Read/Write Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disk Read/Write Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-single-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-single-file-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Single File (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-single-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-single-file_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Single File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        All files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="All files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-all-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load ALL Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-all-file-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load ALL File (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-all-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save ALL Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-all-files-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save ALL Files (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selected-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selected Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Selected Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-selected-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Selected Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-selected-files-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load Selected Files (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-selected-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Selected Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-selected-files-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save Selected Files (Async)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Runtime Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime File
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-all-runtime-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get All Runtime Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-categories-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Categories (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Category
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-category-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Category (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field-full-info-return" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field (Full info return)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field-by-file-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field (By File Object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-field-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Field (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-fields-by-file-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Fields (By File Object)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-runtime-fields-by-file-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Runtime Fields (By File ID)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Events
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Events">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-all-files-loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On All Files Loaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-all-files-saved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On All Files Saved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-file-loaded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On File Loaded
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-file-saved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On File Saved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-value-changed-uconfigvalueobjectruntime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        On Value Changed (UConfigValueObjectRuntime)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-async-k2-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blueprint Async (K2) Nodes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blueprint-workflow-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Blueprint Workflow Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Blueprint Workflow Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Misc
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="config-forge">Config Forge</h1>
+<h2 id="about-the-plugin">About the plugin</h2>
+<blockquote>
+<p><a href="https://github.com/ArtemIyX/ConfigForgeUnreal">Github Repository</a></p>
+</blockquote>
+<p>Author plugin written for Riftborn. </p>
+<p>Plugin that offers a comprehensive system for managing game configurations. It breaks down game configurations into files, categories, and properties that can be easily accessed for both default game configurations, which are asset-based, and saved game configurations, which are stored on disk using a GameInstance system. The plugin supports synchronous or asynchronous loading or saving, offers flexible paths for saving, exposes functions to Blueprints, and offers functionality to be modified at runtime.</p>
+<p>See <a href="#blueprint-workflow-example">Example</a></p>
+<h2 id="setup">Setup</h2>
+<p>For the plugin to work, you need to create a few assets and configure them:</p>
+<h3 id="1-create-config-setup-asset">1. Create <code>Config Setup</code> Asset</h3>
+<p>Create a <strong><code>Config Setup</code></strong>. This is a basic asset that allows you to configure files, categories, and properties.</p>
+<p><img alt="assets" src="../images/config-forge/config-assets.png" /></p>
+<h3 id="2-configure-asset">2. Configure Asset</h3>
+<p>Configure your asset as you see want.</p>
+<p><img alt="structure" src="../images/config-forge/config-structure.png" /></p>
+<h4 id="files">Files</h4>
+<p>You can use the default files or create your own class for processing files.</p>
+<p>You can choose where the file will be stored (<code>Config Provider</code>) and its name with the <code>.ini</code> extension.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>Config Provider</code> and <code>Name</code> are used to generate the ID, so do not create identical files, as this will cause the system to crash.</p>
+</div>
+<h4 id="categories">Categories</h4>
+<p>Each file can have a lot of categories. 
+Each category in the <code>.ini</code> file will be used via <code>[CategoryName]</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use identical names for categories in the same file, otherwise the system will crash.</p>
+</div>
+<h4 id="fields">Fields</h4>
+<p>Each category can have fields. The plugin provides the entire set of <code>.ini</code> fields: </p>
+<p><code>uint8</code>, <code>int32</code>, <code>int64</code>, <code>float</code>, <code>double</code>, <code>FString</code>.</p>
+<blockquote>
+<p>To create your own field type (e.g. array or FVector), inherit from UConfigValueObject in C++ and implement all methods.</p>
+</blockquote>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not name fields in the same category identically. This may cause the system to crash.</p>
+</div>
+<h4 id="meta">Meta</h4>
+<p>Files, categories, and properties can have Meta Data. This is any object for custom settings.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can create <code>UConfigForgeMetaDataObject</code> for a file that will contain a <strong>ENUM</strong>. Depending on the <strong>ENUM</strong>, you will decide whether you need to upload this file to the <strong>server</strong>, <strong>client</strong>, etc.</p>
+</div>
+<h3 id="3-configure-developer-settings">3. Configure Developer Settings</h3>
+<p>Select your assend in <code>Project Settings / Config Forge</code></p>
+<p><img alt="developer" src="../images/config-forge/config-developer.png" /></p>
+<h2 id="uconfigpathprovider">UConfigPathProvider</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">UConfigPathProvider</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
+</span></code></pre></div>
+<blockquote>
+<p>Path Provider determines which directory the file will be located in.</p>
+</blockquote>
+<p><img alt="path-providers" src="../images/config-forge/config-path-providers.png" /></p>
+<p>You can use the ready-made directories provided by the plugin, or create your own Path Provider.</p>
+<p>Just implement
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">FString</span><span class="w"> </span><span class="nf">GetPath</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div></p>
+<h2 id="uconfigforgedevelopersettings">UConfigForgeDeveloperSettings</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">UConfigForgeDeveloperSettings</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UDeveloperSettings</span>
+</span></code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">TSoftObjectPtr</span><span class="o">&lt;</span><span class="n">UConfigForgeSetup</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ConfigSetup</span><span class="p">;</span>
+</span></code></pre></div>
+<p>You can obtain this object in blueprints via</p>
+<p><div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeDeveloperSettings</span><span class="o">*</span><span class="w"> </span><span class="nf">Get</span><span class="p">();</span>
+</span></code></pre></div>
+<img alt="get-developer-settings" src="../images/config-forge/get-developer.png" /></p>
+<p>In C++ I recommend using
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeDeveloperSettings</span><span class="o">*</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetDefault</span><span class="o">&lt;</span><span class="n">UConfigForgeDeveloperSettings</span><span class="o">&gt;</span><span class="p">();</span>
+</span></code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can split the logic in C++ using <code>#if WITH_EDITOR</code>. This way, you will use one path in the <strong>EDITOR</strong> and another in the <strong>PACKAGED BUILD</strong>. </p>
+</div>
+<h2 id="uconfigforgefileruntime">UConfigForgeFileRuntime</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
+</span></code></pre></div>
+<blockquote>
+<p>In Runtime, the plugin uses this class to store information about the file on the disk.</p>
+</blockquote>
+<p>You can always use all these getters to obtain information about the file: its name, full path, Path Provider object, the asset you configured, and a unique ID.</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">FString</span><span class="w"> </span><span class="nf">GetFileName</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">FString</span><span class="w"> </span><span class="nf">GetFullPath</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">UConfigPathProvider</span><span class="o">*</span><span class="w"> </span><span class="nf">GetPathProvider</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">ConfigForgeFile</span><span class="o">*</span><span class="w"> </span><span class="nf">GetFileAsset</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="admonition info inline">
+<p class="admonition-title">Info</p>
+<p>This ID is used to obtain the runtime file object and can be easily obtained at runtime. </p>
+</div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">FGuid</span><span class="w"> </span><span class="nf">GetFileID</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always check whether the data is valid with the help of <code>cpp bool IsValidData() const;</code></p>
+</div>
+<h2 id="uconfigforgecategoryruntime">UConfigForgeCategoryRuntime</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">UConfigForgeCategoryRuntime</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
+</span></code></pre></div>
+<blockquote>
+<p>This object contains information about the category: Name, Asset, as well as all of its fields.</p>
+</blockquote>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">FName</span><span class="w"> </span><span class="nf">GetCategoryName</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">UConfigForgeCategory</span><span class="o">*</span><span class="w"> </span><span class="nf">GetCategoryAsset</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<p>With the file loaded into RAM, you can get all of its categories. </p>
+<p>You can also always get the file in which this category is located: 
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">UConfigForgeFileRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">GetFile</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div></p>
+<h2 id="uconfigvalueobjectruntime">UConfigValueObjectRuntime</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">UConfigValueObjectRuntime</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
+</span></code></pre></div>
+<blockquote>
+<p>This object stores any information needed to write to or read from the disk. It is actually a field in an .ini file.</p>
+</blockquote>
+<p>You can obtain the field name and the asset you configured:
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">FString</span><span class="w"> </span><span class="nf">GetKey</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">UConfigValueObject</span><span class="o">*</span><span class="w"> </span><span class="nf">GetAsset</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p>You can find out which category this field object belongs to:
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">GetCategory</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</span></code></pre></div></p>
+<p>The following functions are used to set or retrieve <a href="#fdynamicvalue">FDynamicValue</a>:
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">FDynamicValue</span><span class="w"> </span><span class="nf">GetDynamicValue</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">SetDynamicValue</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FDynamicValue</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InValue</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h2 id="fdynamicvalue">FDynamicValue</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">FDynamicValue</span>
+</span></code></pre></div>
+<blockquote>
+<p>A universal structure for storing any data.</p>
+</blockquote>
+<p>Unfortunately, blueprints are not that flexible, and most of the functionality of this structure is revealed in C++:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">FDynamicValue</span><span class="w"> </span><span class="n">val</span><span class="p">;</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">val</span><span class="p">.</span><span class="n">Set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">17</span><span class="p">);</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">temp</span><span class="p">;</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">val</span><span class="p">.</span><span class="n">Get</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">temp</span><span class="p">);</span><span class="w"> </span><span class="c1">// temp will be 17</span>
+</span></code></pre></div>
+<p>In C++, a structure can be created directly with a value. 
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">FDynamicValue</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FDynamicValue</span><span class="o">::</span><span class="n">Make</span><span class="p">(</span><span class="mf">31.23f</span><span class="p">);</span>
+</span></code></pre></div></p>
+<p>The Blueprints have functions for creating and reading FDynamicValue, but only for the basic data types used in .ini files.</p>
+<p><img alt="dynamic-bp" src="../images/config-forge/dynamic-bp.png" /></p>
+<h2 id="uconfigforgesubsystem">UConfigForgeSubsystem</h2>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">UConfigForgeSubsystem</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UGameInstanceSubsystem</span>
+</span></code></pre></div>
+<blockquote>
+<p>The main subsystem for file manipulation</p>
+</blockquote>
+<h3 id="fconfigforgefiledata">FConfigForgeFileData</h3>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">CONFIGFORGE_API</span><span class="w"> </span><span class="n">FConfigForgeFileData</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="n">TSubclassOf</span><span class="o">&lt;</span><span class="n">UConfigPathProvider</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PathProvider</span><span class="p">;</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">    </span><span class="n">TObjectPtr</span><span class="o">&lt;</span><span class="n">UConfigForgeFile</span><span class="o">&gt;</span><span class="w"> </span><span class="n">File</span><span class="p">;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>A structure that contains the PathProvider class and the file name with the extension.</p>
+</blockquote>
+<h4 id="fconfigforgefiledata-guid">FConfigForgeFileData GUID</h4>
+<p>You can generate a unique ID for the file:
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">FGuid</span><span class="w"> </span><span class="n">UConfigForgeLibrary</span><span class="o">::</span><span class="n">GetForgeFileID</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FConfigForgeFileData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InData</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h3 id="asset-functions">Asset Functions</h3>
+<h4 id="get-settings">Get Settings</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeDeveloperSettings</span><span class="o">*</span><span class="w"> </span><span class="nf">GetSettings</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Gets the <a href="#uconfigforgedevelopersettings">developer settings</a> for the ConfigForge system.</p>
+</blockquote>
+<h4 id="get-setupasset">Get SetupAsset</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">TSoftObjectPtr</span><span class="o">&lt;</span><span class="n">UConfigForgeSetup</span><span class="o">&gt;</span><span class="w"> </span><span class="n">GetSetupAsset</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves the <a href="#1-create-config-setup-asset">setup asset</a> reference from developer settings.</p>
+</blockquote>
+<h4 id="get-file">Get File</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetFile</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileName</span><span class="p">,</span><span class="w"> </span><span class="n">FConfigForgeFileData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">OutFileData</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a specific <a href="#fconfigforgefiledata">asset configuration</a> file by name.</p>
+</blockquote>
+<h4 id="get-files">Get Files</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetFiles</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FConfigForgeFileData</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutFiles</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all valid <a href="#fconfigforgefiledata">configuration files</a> from the <a href="#1-create-config-setup-asset">setup asset</a>.</p>
+</blockquote>
+<h4 id="get-file-names">Get File Names</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetFileNames</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FString</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutNames</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves the names of all <a href="#fconfigforgefiledata">configuration files</a> in the [setup asset](#1-create-config-setup-asset.</p>
+</blockquote>
+<h4 id="get-file-categories-by-name">Get File Categories By Name</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetFileCategoriesByName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileName</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FName</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutCategories</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#categories">category</a> names from a file specified by name.</p>
+</blockquote>
+<h4 id="get-file-categories">Get File Categories</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetFileCategories</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FConfigForgeFileData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileData</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FName</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">OutCategories</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#categories">category</a> names from a <a href="#fconfigforgefiledata">file data structure</a>.</p>
+</blockquote>
+<h4 id="get-category-properties">Get Category Properties</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetCategoryProperties</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigValueObject</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutProperties</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#fields">value objects</a> from a specific <a href="#categories">category</a> within a <a href="#files">file</a>.</p>
+</blockquote>
+<h3 id="disk-readwrite-functions">Disk Read/Write Functions</h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <a href="#uconfigforgesubsystem">subsystem</a> can only perform one file operation at a time. </p>
+</div>
+<p>Therefore, it is not possible to use two asynchronous operations simultaneously.
+To check whether the subsystem is currently busy working on files, use:</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">IsOperatingFiles</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<h4 id="single-file">Single File</h4>
+<h4 id="load-single-file">Load Single File</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">LoadSingleFile</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FConfigForgeFileData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileData</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutFile</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Synchronously loads a single config <a href="#uconfigforgefileruntime">file</a> from disk.</p>
+</blockquote>
+<h4 id="load-single-file-async">Load Single File (Async)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LoadSingleFileAsync</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FConfigForgeFileData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileData</span><span class="p">,</span><span class="w"> </span><span class="n">FLoadForgeFileDelegate</span><span class="w"> </span><span class="n">Callback</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Asynchronously loads a single config <a href="#uconfigforgefileruntime">file</a> from disk.</p>
+</blockquote>
+<h4 id="save-single-file">Save Single File</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">SaveSingleFile</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileUniqueID</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Synchronously saves a single loaded config <a href="#uconfigforgefileruntime">file</a> to disk.</p>
+</blockquote>
+<h4 id="save-single-file_1">Save Single File</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SaveSingleFileAsync</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileUniqueID</span><span class="p">,</span><span class="w"> </span><span class="n">FSaveForgeFileDelegate</span><span class="w"> </span><span class="n">Callback</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Asynchronously saves a single loaded config <a href="#uconfigforgefileruntime">file</a> to disk.</p>
+</blockquote>
+<h3 id="all-files">All files</h3>
+<h4 id="load-all-files">Load ALL Files</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">LoadAllFiles</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigForgeFileRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutFiles</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Loads all configuration <a href="#uconfigforgefileruntime">files</a> synchronously.</p>
+</blockquote>
+<h4 id="load-all-file-async">Load ALL File (Async)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LoadAllFilesAsync</span><span class="p">(</span><span class="n">FLoadAllForgeFileDelegate</span><span class="w"> </span><span class="n">Callback</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Loads all configuration <a href="#uconfigforgefileruntime">files</a> asynchronously.</p>
+</blockquote>
+<h4 id="save-all-files">Save ALL Files</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">SaveAllFiles</span><span class="p">();</span>
+</span></code></pre></div>
+<blockquote>
+<p>Saves all currently loaded runtime configuration <a href="#uconfigforgefileruntime">filess</a> synchronously.</p>
+</blockquote>
+<h4 id="save-all-files-async">Save ALL Files (Async)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SaveAllFilesAsync</span><span class="p">(</span><span class="n">FSaveAllForgeFileDelegate</span><span class="w"> </span><span class="n">Callback</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Saves all currently loaded runtime configuration <a href="#uconfigforgefileruntime">files</a> asynchronously.</p>
+</blockquote>
+<h3 id="selected-files">Selected Files</h3>
+<h4 id="load-selected-files">Load Selected Files</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">LoadSelectedFiles</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FConfigForgeFileData</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InFiles</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigForgeFileRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutFiles</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Synchronously loads a selected subset of config files into runtime <a href="#uconfigforgefileruntime">files</a>.</p>
+</blockquote>
+<h4 id="load-selected-files-async">Load Selected Files (Async)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">LoadSelectedFilesAsync</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FConfigForgeFileData</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InFiles</span><span class="p">,</span><span class="w"> </span><span class="n">FLoadAllForgeFileDelegate</span><span class="w"> </span><span class="n">Callback</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Asynchronously loads a selected subset of config files into runtime <a href="#uconfigforgefileruntime">files</a>.</p>
+</blockquote>
+<h4 id="save-selected-files">Save Selected Files</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">SaveSelectedFiles</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FGuid</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InFiles</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Saves selected loaded runtime configuration <a href="#uconfigforgefileruntime">files</a> synchronously.</p>
+</blockquote>
+<h4 id="save-selected-files-async">Save Selected Files (Async)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SaveSelectedFilesAsync</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">FGuid</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">InFiles</span><span class="p">,</span><span class="w"> </span><span class="n">FSaveSelectedForgeFileDelegate</span><span class="w"> </span><span class="n">Callback</span><span class="p">);</span>
+</span></code></pre></div>
+<blockquote>
+<p>Saves selected loaded runtime configuration <a href="#uconfigforgefileruntime">files</a> asynchronously.</p>
+</blockquote>
+<h3 id="runtime-functions">Runtime Functions</h3>
+<h4 id="get-runtime-file">Get Runtime File</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeFile</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InUniqueFileId</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutRuntimeFile</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a loaded <a href="#uconfigforgefileruntime">runtime file</a> instance by its unique <a href="#fconfigforgefiledata-guid">ID</a>.</p>
+</blockquote>
+<h4 id="get-all-runtime-files">Get All Runtime Files</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">GetAllRuntimeFiles</span><span class="p">(</span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigForgeFileRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutRuntimeFiles</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all runtime <a href="#uconfigforgefileruntime">configuration files</a> currently loaded in the <a href="#uconfigforgesubsystem">subsystem</a>.</p>
+</blockquote>
+<h4 id="get-runtime-categories">Get Runtime Categories</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeCategories</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">InConfigFile</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutCategories</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#uconfigforgecategoryruntime">categories</a> from a specific <a href="#uconfigforgefileruntime">runtime configuration file</a>.</p>
+</blockquote>
+<h4 id="get-runtime-categories-by-file-id">Get Runtime Categories (By File ID)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeCategories_ID</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileId</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutCategories</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#uconfigforgecategoryruntime">categories</a> from a <a href="#uconfigforgefileruntime">runtime configuration file</a> identified by its <a href="#fconfigforgefiledata-guid">ID</a>.</p>
+</blockquote>
+<h4 id="get-runtime-category">Get Runtime Category</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeCategory</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">InConfigFile</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutCategory</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a specific <a href="#uconfigforgecategoryruntime">category</a> by name from a <a href="#uconfigforgefileruntime">runtime configuration file</a>.</p>
+</blockquote>
+<h4 id="get-runtime-category-by-file-id">Get Runtime Category (By File ID)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeCategory_ID</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileId</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutCategory</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a specific <a href="#uconfigforgecategoryruntime">category</a> by name from a <a href="#uconfigforgefileruntime">runtime configuration file</a> identified by its <a href="#fconfigforgefiledata-guid">ID</a>.</p>
+</blockquote>
+<h4 id="get-runtime-field-full-info-return">Get Runtime Field (Full info return)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeField_Full</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFiledId</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFieldName</span><span class="p">,</span>
+</span><span id="__span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">        </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutFile</span><span class="p">,</span>
+</span><span id="__span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">        </span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutCategory</span><span class="p">,</span>
+</span><span id="__span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">        </span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutField</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a <a href="#uconfigvalueobjectruntime">runtime field</a> by providing its file <a href="#fconfigforgefiledata-guid">ID</a>, <a href="#uconfigforgecategoryruntime">category</a> name, and <a href="#uconfigvalueobjectruntime">field</a> name.</p>
+</blockquote>
+<h4 id="get-runtime-field">Get Runtime Field</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeField</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">InRuntimeCategory</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InKey</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutField</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a specific <a href="#uconfigvalueobjectruntime">field</a> by key from a <a href="#uconfigforgecategoryruntime">runtime category</a>.</p>
+</blockquote>
+<h4 id="get-runtime-field-by-file-object">Get Runtime Field (By File Object)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeField_File</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">InConfigFile</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InKey</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutField</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a specific <a href="#uconfigvalueobjectruntime">field</a> by key from a <a href="#uconfigforgecategoryruntime">category</a> within a <a href="#uconfigforgefileruntime">runtime configuration file</a>.</p>
+</blockquote>
+<h4 id="get-runtime-field-by-file-id">Get Runtime Field (By File ID)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeField_ID</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileID</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FString</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InKey</span><span class="p">,</span><span class="w"> </span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&amp;</span><span class="w"> </span><span class="n">OutField</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves a specific <a href="#uconfigvalueobjectruntime">field</a> by key from a <a href="#uconfigforgecategoryruntime">category</a> within a <a href="#uconfigforgefileruntime">runtime configuration file</a> identified by its <a href="#fconfigforgefiledata-guid">ID</a>.</p>
+</blockquote>
+<h4 id="get-runtime-fields">Get Runtime Fields</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeFields</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeCategoryRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">InRuntimeCategory</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutFields</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#uconfigvalueobjectruntime">fields</a> from a <a href="#uconfigforgecategoryruntime">runtime category</a>.</p>
+</blockquote>
+<h4 id="get-runtime-fields-by-file-object">Get Runtime Fields (By File Object)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeFields_File</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UConfigForgeFileRuntime</span><span class="o">*</span><span class="w"> </span><span class="n">InConfigFile</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutFields</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#uconfigvalueobjectruntime">fields</a> from a <a href="#uconfigforgecategoryruntime">runtime category</a> within a <a href="#uconfigforgefileruntime">runtime configuration file</a>.</p>
+</blockquote>
+<h4 id="get-runtime-fields-by-file-id">Get Runtime Fields (By File ID)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">GetRuntimeFields_ID</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FGuid</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InFileID</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FName</span><span class="o">&amp;</span><span class="w"> </span><span class="n">InCategoryName</span><span class="p">,</span><span class="w"> </span><span class="n">TArray</span><span class="o">&lt;</span><span class="n">UConfigValueObjectRuntime</span><span class="o">*&gt;&amp;</span><span class="w"> </span><span class="n">OutFields</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Retrieves all <a href="#uconfigvalueobjectruntime">fields</a> from a <a href="#uconfigforgecategoryruntime">runtime category</a> within a<a href="#uconfigforgefileruntime">runtime configuration file</a> identified by its <a href="#fconfigforgefiledata-guid">ID</a>.</p>
+</blockquote>
+<h3 id="events">Events</h3>
+<h4 id="on-all-files-loaded">On All Files Loaded</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="n">FConfigForgeSubsystemDelegate</span><span class="w"> </span><span class="n">OnAllFilesLoaded</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Called when <a href="#load-all-files"><code>UConfigForgeSubsystem::LoadAllFiles</code></a> and <a href="#load-all-file-async"><code>ConfigForgeSubsystem::LoadAllFilesAsync</code></a> finishes loading.</p>
+</blockquote>
+<h4 id="on-all-files-saved">On All Files Saved</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="n">FConfigForgeSubsystemDelegate</span><span class="w"> </span><span class="n">OnAllFilesSaved</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Called when <a href="#save-all-files"><code>UConfigForgeSubsystem::SaveAllFiles</code></a> and <a href="#save-all-files-async"><code>ConfigForgeSubsystem::SaveAllFilesAsync</code></a> finishes saving.</p>
+</blockquote>
+<h4 id="on-file-loaded">On File Loaded</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="n">FConfigForgeSubsystemFileDelegate</span><span class="w"> </span><span class="n">OnFileLoaded</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Called when any function has saved <a href="#uconfigforgefileruntime">runtime file</a> to disk.</p>
+</blockquote>
+<h4 id="on-file-saved">On File Saved</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-59-1"><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="n">FConfigForgeSubsystemFileDelegate</span><span class="w"> </span><span class="n">OnFileSaved</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Called when any function has loaded <a href="#uconfigforgefileruntime">runtime file</a> from disk.</p>
+</blockquote>
+<h4 id="on-value-changed-uconfigvalueobjectruntime">On Value Changed (UConfigValueObjectRuntime)</h4>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-60-1"><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="n">FConfigValueChangedDelegate</span><span class="w"> </span><span class="n">UConfigValueObjectRuntime</span><span class="o">::</span><span class="n">OnValueChanged</span><span class="p">;</span>
+</span></code></pre></div>
+<blockquote>
+<p>Called when SetDynamicValue changes the value</p>
+</blockquote>
+<h2 id="blueprint-async-k2-nodes">Blueprint Async (K2) Nodes</h2>
+<p><img alt="async-node" src="../images/config-forge/bp-async.png" /></p>
+<p>All async function are exposed to blueprints via K2 Nodes</p>
+<h2 id="blueprint-workflow-example">Blueprint Workflow Example</h2>
+<h3 id="load">Load</h3>
+<p><img alt="bp-load" src="../images/config-forge/bp-load.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can load only the files you need based on the meta data object. For example, download only server configurations on the dedicated server.</p>
+</div>
+<h3 id="modify">Modify</h3>
+<p><img alt="bp-load" src="../images/config-forge/bp-modify.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can store in variable the field object reference (pointer) and then change it in the widget. It will remain valid until you reload the file.</p>
+</div>
+<h3 id="save">Save</h3>
+<p><img alt="bp-load" src="../images/config-forge/bp-save.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can only save the files you have changed. It is not necessary to load the disc and save all the files if you have a lot of them.</p>
+</div>
+<h3 id="misc">Misc</h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>You can create a naming system so that you don't have to name files manually and can easily change their names during development.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../blueprint-compile/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Blueprint Compile">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Blueprint Compile
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../data-serializer/" class="md-footer__link md-footer__link--next" aria-label="Next: Data Serializer">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Data Serializer
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
